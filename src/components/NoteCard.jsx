@@ -11,7 +11,7 @@ function NoteCard({note}) {
         updateNote(updatedNote);
     }
 
-    const handleCheck = (e) =>{
+    const handleCheck = () =>{
         const updatedNote = {...note, marked: !note.marked}
 
         updateNote(updatedNote);
