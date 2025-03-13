@@ -6,11 +6,11 @@ import { BrowserRouter } from 'react-router-dom'
 import { NoteProviderWrapper } from './context/note.context.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <BrowserRouter>
       <NoteProviderWrapper>
         <App />
       </NoteProviderWrapper>
     </BrowserRouter>
-  </StrictMode>,
+  // </StrictMode>,
 )

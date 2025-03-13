@@ -2,31 +2,37 @@ import { createContext, useState } from "react";
 
 const NoteContext = createContext();
 
+const API_URL = "https://ca86bf610095b7e0c9c6.free.beeceptor.com/api/notes/"
 function NoteProviderWrapper(props){
-    const noteList = [
-        {
-            id: 1,
-            title: "Ir a comprar",
-            marked: false
-        },
-        {
-            id: 2,
-            title: "Irecordatorio",
-            marked: false
-        },
-        {
-            id: 3,
-            title: "Pelicula",
-            marked: false
-        },
-        {
-            id: 4,
-            title: "futbol",
-            marked: false
-        },
-    ]
+    const [notes, setNotes] = useState([]);
+    const [hasError, setError] = useState(false);
+    const [hasLoaded, setLoaded] = useState(false);
 
-    const [notes, setNotes] = useState(noteList);
+    const getNotes = async () => {
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
+            setNotes(data.reverse());
+            setError(false);
+            setLoaded(true)
+        } catch(e){
+            console.log(e)
+            setError(true);
+        }
+    }
+
+    const addNote = async (newNote) => {
+        try {
+            await fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify(newNote)
+            })
+            setNotes([newNote,...notes ])
+        } catch (e) {
+            console.log(e)
+            
+        }
+    };
 
     const updateNote = (updatedNote) => {
         const updatedNotes = notes.map((note) =>{
@@ -38,7 +44,7 @@ function NoteProviderWrapper(props){
     }
 
     return (
-        <NoteContext.Provider value={{notes, setNotes, updateNote}}>
+        <NoteContext.Provider value={{notes, hasError, hasLoaded,getNotes,setNotes, addNote ,updateNote}}>
             {props.children}
         </NoteContext.Provider>
     )
