@@ -1,10 +1,13 @@
 import './App.css'
+import { NoteProviderWrapper } from './context/note.context'
 import NotesPage from './pages/NotesPage'
 
 function App() {
 
   return (
-    <NotesPage></NotesPage>
+    <NoteProviderWrapper>
+      <NotesPage></NotesPage>
+    </NoteProviderWrapper>
   )
 }
 

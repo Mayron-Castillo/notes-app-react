@@ -1,39 +1,61 @@
-.note-form{
-    width: 400px;
+.note-form {
+    width: 100%;
+    max-width: 400px;
     background-color: #90ee90;
     border: 3px solid #25c226;
-    padding: 20px 30px;
+    padding: 15px 20px;
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
+    align-items: center; 
+    gap: 10px; 
     transition: all 0.2s;
 }
-.note-title{
+
+.note-title {
+    flex-grow: 1; 
     background-color: transparent;
     border: none;
     font-size: 1.2rem;
     font-weight: bold;
     outline: none;
+    min-width: 0; 
 }
 
-.create-btn{
-    width: 30px;
-    height: 30px;
+.create-btn {
+    width: 40px;
+    height: 40px;
     font-size: 1.5rem;
     background-color: #19a01a;
     color: white;
     display: flex;
+    justify-content: center;
     align-items: center;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0; 
 }
 
-.create-btn:hover{
+.create-btn:hover {
     background-color: #177e19;
 }
 
-.create-btn:active{
-    background-color: #177e19;
+.create-btn:active {
+    background-color: #146514;
 }
 
-.note-form:hover{
-    border: 3px solid #25c226;
+@media (max-width: 360px) {
+    .note-form {
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .note-title {
+        font-size: 1rem;
+    }
+
+    .create-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
 }
