@@ -1,20 +1,6 @@
 .header{
-    background-color: black;
-    color: white;
-    padding: 30px;
+    background-color: #bae2fd;
+    color: #0277c7;
+    padding: 1rem;
     text-align: center;
-
-    .title{
-        margin: 0;
-    }
-
-    .nav-list{
-        display: flex;
-        justify-content: space-around;
-        
-        .link{
-            color: white;
-            text-decoration: none;
-        }
-    }
 }

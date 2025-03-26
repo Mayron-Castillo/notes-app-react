@@ -25,7 +25,6 @@ function NotesPage() {
     <HeaderComponent></HeaderComponent>
 
     <section className="notes-page">
-      <h2>Notes</h2>
       <ul className="note-list">
         <li>
           <CreateNote></CreateNote>
