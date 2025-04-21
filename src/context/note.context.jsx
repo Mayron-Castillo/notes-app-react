@@ -1,9 +1,17 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const NoteContext = createContext();
 
 function NoteProviderWrapper(props) {
-    const [notes, setNotes] = useState([]); 
+    const [notes, setNotes] = useState(() => {
+        const storedNotes = localStorage.getItem("notes");
+        return storedNotes ? JSON.parse(storedNotes) : [];
+    });
+
+    // Guardar notas en localStorage cada vez que cambien
+    useEffect(() => {
+        localStorage.setItem("notes", JSON.stringify(notes));
+    }, [notes]); 
 
     const addNote = (newNote) => {
         setNotes(prevNotes => [...prevNotes, { ...newNote, id: Date.now() }]); 

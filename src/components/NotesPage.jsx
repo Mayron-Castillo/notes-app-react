@@ -1,9 +1,9 @@
 import './NotesPage.css';
 import { useContext } from "react";
-import HeaderComponent from "../components/HeaderComponent";
+import HeaderComponent from "./HeaderComponent";
 import { NoteContext } from "../context/note.context";
-import NoteCard from "../components/NoteCard";
-import CreateNote from '../components/CreateNote';
+import NoteCard from "./NoteCard";
+import CreateNote from './CreateNote';
 
 function NotesPage() {
   const { notes } = useContext(NoteContext); 

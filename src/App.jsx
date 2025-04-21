@@ -1,6 +1,6 @@
 import './App.css'
 import { NoteProviderWrapper } from './context/note.context'
-import NotesPage from './pages/NotesPage'
+import NotesPage from './components/NotesPage'
 
 function App() {
 
